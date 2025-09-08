@@ -1,0 +1,25 @@
+# Node / React
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env files
+.env
+.env.*.local
+.env.local
+
+# React build
+client/build/
+build/
+
+# Server build
+server/dist/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
