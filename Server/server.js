@@ -32,6 +32,11 @@ async function connectDB() {
 }
 connectDB();
 
+app.get("/api/healthz", (req, res) => {
+    res.json({ ok: true });
+});
+
+
 app.post("/api/infos", async (req, res) => {
     try {
         const result = await infosCollection.insertOne(req.body);
