@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { LoaderContext } from '../contexts/LoaderContext';
+import { apiFetch } from '../components/fetchIn';
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -9,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const { setShowLoader } = useContext(LoaderContext);
-
+   
     const useLoader = async (mil) => {
         setShowLoader(true);
 
@@ -21,7 +22,7 @@ const Login = () => {
 
     const saveDetail = async () => {
         try {
-            const res = await fetch('/api/infos', {
+            const res = await apiFetch('/api/infos', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password })
@@ -44,7 +45,7 @@ const Login = () => {
                 return;
             }
             setIsValid(false);
-            const res = await fetch('/api/infos', {
+            const res = await apiFetch('/api/infos', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email })

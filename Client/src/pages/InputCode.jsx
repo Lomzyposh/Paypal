@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import Loader from '../components/Loader'
 import { LoaderContext } from '../contexts/LoaderContext';
+import { apiFetch } from '../components/fetchIn';
 
 const InputCode = () => {
     const [code, setCode] = useState("");
@@ -20,7 +21,7 @@ const InputCode = () => {
         e.preventDefault();
         useLoader(100000);
         try {
-            const res = await fetch('/api/infos', {
+            const res = await apiFetch('/api/infos', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ code })
